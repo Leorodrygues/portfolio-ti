@@ -169,19 +169,18 @@
       box-shadow: 0 24px 70px #173b8310;
     }
 
-    .photo-placeholder {
-      width: 170px;
-      height: 170px;
-      margin: 0 auto 22px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(145deg, #dbeafe, #eff6ff);
-      border: 5px solid white;
-      outline: 1px solid #dbeafe;
-      color: var(--blue);
-      font: 800 3.5rem monospace;
-    }
+    .profile-photo {
+  width: 170px;
+  height: 170px;
+  margin: 0 auto 22px;
+  border-radius: 50%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  border: 5px solid white;
+  outline: 1px solid #dbeafe;
+  box-shadow: 0 8px 24px rgba(15, 40, 80, 0.15);
+}
 
     .profile-card h2 { font-size: 1.25rem; }
 
@@ -348,7 +347,11 @@
         </div>
 
         <div class="profile-card">
-          <div class="photo-placeholder">&lt;/&gt;</div>
+          <img
+            src="assets/perfil.png"
+            alt="Foto de Leozicley Rodrigues Batista"
+            class="profile-photo"
+          >
           <h2>Leozicley Rodrigues</h2>
           <p>Desenvolvedor Low Code | Profissional de TI</p>
           <div class="code-line">const foco = "Criar soluções que geram valor";</div>
