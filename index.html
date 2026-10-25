@@ -1,0 +1,487 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f3f6fb">
+  <meta name="description" content="Portfólio profissional de TI, Power Platform, Power Apps e desenvolvimento Low Code.">
+  <title>Meu Portfólio | Tecnologia e Low Code</title>
+  <style>
+    :root {
+      --blue: #2563eb;
+      --blue-dark: #173b83;
+      --bg: #f3f6fb;
+      --surface: #ffffff;
+      --text: #172033;
+      --muted: #64748b;
+      --border: #e2e8f0;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: auto;
+    }
+
+    header {
+      background: rgba(255,255,255,.92);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(12px);
+    }
+
+    nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: -.5px;
+      font-size: 1.15rem;
+    }
+
+    .brand span { color: var(--blue); }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .nav-links a:hover { color: var(--blue); }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 90px 0 80px;
+      background:
+        radial-gradient(circle at 85% 20%, #dbeafe 0, transparent 32%),
+        linear-gradient(135deg, #f8fafc, #edf3fc);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero::after {
+      content: "</>";
+      position: absolute;
+      right: 4%;
+      bottom: -75px;
+      font: 900 clamp(150px, 25vw, 330px)/1 monospace;
+      color: rgba(37,99,235,.045);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 56px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      color: var(--blue);
+      font-size: .8rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      line-height: 1.08;
+      letter-spacing: -2px;
+      margin-bottom: 22px;
+    }
+
+    h1 span { color: var(--blue); }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 580px;
+      font-size: 1.05rem;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: .92rem;
+      transition: .2s;
+    }
+
+    .btn-primary {
+      color: white;
+      background: var(--blue);
+      box-shadow: 0 8px 22px #2563eb30;
+    }
+
+    .btn-primary:hover {
+      background: var(--blue-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      border: 1px solid #cbd5e1;
+      background: white;
+    }
+
+    .btn-secondary:hover { border-color: var(--blue); }
+
+    .profile-card {
+      padding: 30px;
+      background: rgba(255,255,255,.85);
+      border: 1px solid #dce5f2;
+      border-radius: 24px;
+      text-align: center;
+      box-shadow: 0 24px 70px #173b8310;
+    }
+
+    .photo-placeholder {
+      width: 170px;
+      height: 170px;
+      margin: 0 auto 22px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(145deg, #dbeafe, #eff6ff);
+      border: 5px solid white;
+      outline: 1px solid #dbeafe;
+      color: var(--blue);
+      font: 800 3.5rem monospace;
+    }
+
+    .profile-card h2 { font-size: 1.25rem; }
+
+    .profile-card p {
+      font-size: .9rem;
+      margin: 5px auto 0;
+    }
+
+    .code-line {
+      margin-top: 22px;
+      padding: 12px;
+      background: #f1f5f9;
+      border-radius: 10px;
+      color: #475569;
+      font: .78rem monospace;
+      overflow-wrap: anywhere;
+    }
+
+    section { padding: 76px 0; }
+
+    .section-heading { margin-bottom: 32px; }
+
+    .section-heading .eyebrow { margin-bottom: 8px; }
+
+    .section-heading h2 {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      letter-spacing: -.8px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      margin-top: 8px;
+      max-width: 650px;
+    }
+
+    .about-card, .skill-card, .project-card, .contact-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 26px;
+      box-shadow: 0 8px 28px #0f172a05;
+    }
+
+    .about-card p { color: var(--muted); }
+
+    .skills-grid, .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .skill-icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 13px;
+      background: #eff6ff;
+      color: var(--blue);
+      font: 800 1rem monospace;
+      margin-bottom: 18px;
+    }
+
+    .skill-card h3, .project-card h3 { margin-bottom: 8px; }
+
+    .skill-card p, .project-card p {
+      color: var(--muted);
+      font-size: .93rem;
+    }
+
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 245px;
+      transition: .2s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      border-color: #bfdbfe;
+      box-shadow: 0 15px 35px #2563eb12;
+    }
+
+    .project-card p { flex: 1; }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 18px;
+    }
+
+    .tag {
+      background: #eff6ff;
+      color: #1d4ed8;
+      padding: 5px 9px;
+      border-radius: 6px;
+      font-size: .75rem;
+      font-weight: 700;
+    }
+
+    .contact-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 22px;
+    }
+
+    .contact-card p { color: var(--muted); margin-top: 5px; }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 25px 0;
+      color: var(--muted);
+      font-size: .85rem;
+      text-align: center;
+    }
+
+    @media (max-width: 760px) {
+      .hero { padding: 60px 0; }
+      .hero-content { grid-template-columns: 1fr; gap: 36px; }
+      .profile-card { max-width: 380px; width: 100%; margin: auto; }
+      .skills-grid, .projects-grid { grid-template-columns: 1fr; }
+      nav { padding: 16px 0; align-items: flex-start; flex-direction: column; }
+      .nav-links { gap: 15px; }
+      h1 { letter-spacing: -1px; }
+      section { padding: 55px 0; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="container">
+      <a class="brand" href="#inicio">LEO<span>.DEV</span></a>
+      <div class="nav-links">
+        <a href="#sobre">Sobre mim</a>
+        <a href="#habilidades">Habilidades</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#contato">Contato</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-content">
+        <div>
+          <div class="eyebrow">Tecnologia · Desenvolvimento · Inovação</div>
+          <h1>Transformando processos em <span>soluções digitais.</span></h1>
+          <p>
+            Profissional de TI com foco em desenvolvimento Low Code,
+            Power Platform e criação de sistemas que simplificam rotinas,
+            organizam informações e melhoram processos.
+          </p>
+          <div class="actions">
+            <a class="btn btn-primary" href="#projetos">Explorar projetos ↗</a>
+            <a class="btn btn-secondary" href="#sobre">Conheça meu perfil</a>
+          </div>
+        </div>
+
+        <div class="profile-card">
+          <div class="photo-placeholder">&lt;/&gt;</div>
+          <h2>Seu nome aqui</h2>
+          <p>Desenvolvedor Low Code | Profissional de TI</p>
+          <div class="code-line">const foco = "Criar soluções que geram valor";</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sobre">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">01 / Apresentação</div>
+          <h2>Sobre mim</h2>
+          <p>Tecnologia aplicada a problemas reais.</p>
+        </div>
+        <div class="about-card">
+          <p>
+            Atuo na área de Tecnologia da Informação, desenvolvendo soluções
+            digitais para transformar processos manuais em aplicações mais
+            organizadas, rastreáveis e eficientes. Tenho foco em Power Apps,
+            SharePoint, automação de processos e sistemas voltados às
+            necessidades do negócio. Estou sempre buscando evoluir
+            tecnicamente e criar soluções que facilitem o dia a dia das equipes.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="habilidades">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">02 / Conhecimentos</div>
+          <h2>Habilidades técnicas</h2>
+          <p>Ferramentas e áreas com as quais trabalho.</p>
+        </div>
+        <div class="skills-grid">
+          <article class="skill-card">
+            <div class="skill-icon">PA</div>
+            <h3>Power Apps</h3>
+            <p>Aplicações corporativas, formulários, galerias, filtros e regras de negócio com Power Fx.</p>
+          </article>
+          <article class="skill-card">
+            <div class="skill-icon">SP</div>
+            <h3>SharePoint</h3>
+            <p>Listas, organização de dados e integração com aplicações da Power Platform.</p>
+          </article>
+          <article class="skill-card">
+            <div class="skill-icon">PA</div>
+            <h3>Power Automate</h3>
+            <p>Automação de tarefas e fluxos de trabalho para reduzir atividades manuais.</p>
+          </article>
+          <article class="skill-card">
+            <div class="skill-icon">IT</div>
+            <h3>Suporte de TI</h3>
+            <p>Diagnóstico de problemas, suporte ao usuário, computadores e sistemas corporativos.</p>
+          </article>
+          <article class="skill-card">
+            <div class="skill-icon">DB</div>
+            <h3>Dados e relatórios</h3>
+            <p>Estruturação de informações, indicadores e relatórios para apoiar decisões.</p>
+          </article>
+          <article class="skill-card">
+            <div class="skill-icon">&lt;/&gt;</div>
+            <h3>Soluções digitais</h3>
+            <p>Mapeamento de processos e desenvolvimento de ferramentas alinhadas às necessidades das equipes.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projetos">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">03 / Portfólio</div>
+          <h2>Projetos em destaque</h2>
+          <p>Algumas categorias de soluções que farão parte do portfólio.</p>
+        </div>
+        <div class="projects-grid">
+          <article class="project-card">
+            <div class="skill-icon">01</div>
+            <h3>Sistemas de gestão</h3>
+            <p>Aplicações para digitalização de processos, organização de registros e acompanhamento de atividades.</p>
+            <div class="tags"><span class="tag">Power Apps</span><span class="tag">SharePoint</span></div>
+          </article>
+          <article class="project-card">
+            <div class="skill-icon">02</div>
+            <h3>Rastreabilidade e produção</h3>
+            <p>Soluções para registrar etapas, acompanhar status e facilitar a consulta de informações operacionais.</p>
+            <div class="tags"><span class="tag">Low Code</span><span class="tag">Power Fx</span></div>
+          </article>
+          <article class="project-card">
+            <div class="skill-icon">03</div>
+            <h3>Dashboards e relatórios</h3>
+            <p>Interfaces para consultar dados, aplicar filtros e visualizar indicadores de forma organizada.</p>
+            <div class="tags"><span class="tag">Dados</span><span class="tag">Relatórios</span></div>
+          </article>
+          <article class="project-card">
+            <div class="skill-icon">04</div>
+            <h3>Gestão de ativos e cautelas</h3>
+            <p>Conceito de sistema para acompanhar itens, registros e etapas de entrega e devolução.</p>
+            <div class="tags"><span class="tag">Sistemas internos</span><span class="tag">TI</span></div>
+          </article>
+          <article class="project-card">
+            <div class="skill-icon">05</div>
+            <h3>Automação de processos</h3>
+            <p>Digitalização de rotinas com foco na redução de tarefas repetitivas e melhoria do fluxo de trabalho.</p>
+            <div class="tags"><span class="tag">Automação</span><span class="tag">Processos</span></div>
+          </article>
+          <article class="project-card">
+            <div class="skill-icon">06</div>
+            <h3>Infraestrutura e suporte</h3>
+            <p>Experiência prática com suporte técnico, estações de trabalho, sistemas e infraestrutura de TI.</p>
+            <div class="tags"><span class="tag">Infraestrutura</span><span class="tag">Suporte</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato">
+      <div class="container">
+        <div class="contact-card">
+          <div>
+            <div class="eyebrow">04 / Conexões</div>
+            <h2>Vamos trocar ideias?</h2>
+            <p>Entre em contato ou conheça meus repositórios.</p>
+          </div>
+          <a class="btn btn-primary" href="https://github.com/" target="_blank" rel="noopener noreferrer">Meu GitHub ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">Desenvolvido com dedicação à tecnologia · <span id="year"></span></div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
